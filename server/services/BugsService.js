@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
-import Value from "../models/Value";
+// @ts-ignore
+import Bug from "../models/Bug";
 
-const _repository = mongoose.model("Value", Value);
+const _repository = mongoose.model("Bug", Bug);
 
 class ValueService {
   async getAll() {
