@@ -1,16 +1,22 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="container-fluid">
+    <div id="nav" class="row">
+      <div class="d-flex justify-content-start col-6">
+        <h1>Bug Logger</h1>
+      </div>
+      <div class="d-flex justify-content-end col-6">
+        <button class="btn btn-info">Report</button>
+      </div>
     </div>
-    <router-view/>
+    <div class="row">
+      <router-view class="col-12" />
+    </div>
   </div>
 </template>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -28,5 +34,12 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+h1 {
+  font-family: "Pacifico", cursive;
+  color: greenyellow;
+}
+h1:hover {
+  cursor: pointer;
 }
 </style>
