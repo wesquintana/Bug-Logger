@@ -2,7 +2,7 @@
   <div id="app" class="container-fluid">
     <div id="nav" class="row">
       <div class="d-flex justify-content-start col-6">
-        <h1>Bug Logger</h1>
+        <router-link :to="{ name: 'home' }"><h1>Bug Logger</h1></router-link>
       </div>
       <div class="d-flex justify-content-end col-6">
         <button class="btn btn-info">Report</button>
@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,10 +26,13 @@
 #nav {
   padding: 30px;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 #nav a.router-link-exact-active {

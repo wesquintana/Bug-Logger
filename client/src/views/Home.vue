@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home row">
     <div class="col-12">
       <form @submit.prevent="createBug">
         <div class>
@@ -42,13 +42,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="bug in bugs" :key="bug.id" v-if="!(hide && bug.closed)">
-          <th scope="row">{{ bug.title }}</th>
-          <td>{{ bug.reportedBy }}</td>
-          <td v-if="bug.closed" style="color: red">Closed</td>
-          <td v-else style="color: green">Open</td>
-          <td>{{ bug.updatedAt }}</td>
-        </tr>
+        <bug-component
+          v-for="bug in bugs"
+          :key="bug.id"
+          :bugData="bug"
+          :hidden="hide"
+        />
       </tbody>
     </table>
   </div>
@@ -93,3 +92,4 @@ export default {
   }
 };
 </script>
+<style scoped></style>
