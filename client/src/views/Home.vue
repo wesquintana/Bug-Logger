@@ -28,7 +28,7 @@
         ></textarea>
       </form>
     </div>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between checkbox">
       <h3>Current Bugs</h3>
       <div><input type="checkbox" v-model="hide" />Hide Closed</div>
     </div>
@@ -56,6 +56,8 @@
 <script>
 // @ is an alias to /src
 import BugComponent from "@/components/Bug";
+import router from "@/router";
+import swal from "sweetalert";
 export default {
   name: "home",
   data() {
@@ -69,14 +71,20 @@ export default {
     };
   },
   methods: {
-    createBug() {
+    async createBug() {
       let bug = { ...this.newBug };
-      this.$store.dispatch("createBug", bug);
+      await this.$store.dispatch("createBug", bug);
       this.newBug = {
         title: "",
         reportedBy: "",
         description: ""
       };
+      // debugger;
+      // this.$store.state.activeBug.id;
+      router.push({
+        path: `/bugs/` + this.$store.state.activeBug.id
+        // params: this.$store.state.activeBug.id
+      });
     }
   },
   mounted() {
@@ -92,4 +100,11 @@ export default {
   }
 };
 </script>
-<style scoped></style>
+<style scoped>
+.checkbox {
+  min-width: -webkit-fill-available;
+}
+textarea {
+  resize: none;
+}
+</style>

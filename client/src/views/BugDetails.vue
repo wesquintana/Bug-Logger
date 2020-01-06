@@ -158,4 +158,7 @@ h1:hover {
 .message-col {
   width: 60%;
 }
+textarea {
+  resize: none;
+}
 </style>
