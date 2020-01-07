@@ -112,6 +112,7 @@ export default {
       };
     },
     closeBug() {
+      if (!window.confirm("Are you sure you want to close this bug?")) return;
       this.$store.dispatch("closeBug", this.$route.params.id);
     },
     edit() {

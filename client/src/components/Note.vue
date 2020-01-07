@@ -1,10 +1,10 @@
 <template>
   <tr>
-    <th scope="row">
-      {{ noteData.reportedBy }}
-    </th>
+    <th scope="row">{{ noteData.reportedBy }}</th>
     <td>{{ noteData.content }}</td>
-    <td><button @click="delNote" class="btn btn-danger"></button></td>
+    <td>
+      <button @click="delNote" class="btn btn-danger"></button>
+    </td>
   </tr>
 </template>
 <script>
@@ -16,6 +16,7 @@ export default {
   },
   methods: {
     delNote() {
+      if (!window.confirm("Are you sure you want to delete this note?")) return;
       this.$store.dispatch("deleteNote", this.noteData);
     }
   }
